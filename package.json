@@ -4,23 +4,33 @@
   "description": "Fetch remote less from @import",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test ./node_modules/.bin/_mocha --delay --require should --reporter spec",
-    "test-cov": "NODE_ENV=test node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require should --delay",
-    "test-travis": "NODE_ENV=test node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --require should --delay"
+    "test": "NODE_ENV=test ./node_modules/.bin/_mocha --timeout 10000 --require should --reporter spec",
+    "test-cov": "NODE_ENV=test node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require should --timeout 10000",
+    "test-travis": "NODE_ENV=test node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --require should --timeout 10000"
   },
   "author": "LingyuCoder",
   "license": "MIT",
   "devDependencies": {
+    "del": "^1.1.0",
+    "gulp": "3.x.x",
     "istanbul": "~0.4.0",
     "mocha": "~2.3.3",
-    "should": "~7.1.1",
     "run-sequence": "~1.1.4",
-    "gulp": "3.x.x",
-    "del": "^1.1.0"
+    "should": "~7.1.1",
+    "should-promised": "^0.3.1"
   },
   "dependencies": {
+    "co": "~4.6.0",
+    "co-parallel-limit": "0.0.2",
+    "del": "~2.2.0",
+    "fs-extra": "~0.26.2",
+    "gulp-util": "~3.0.7",
+    "linglog": "0.0.4",
     "lodash": "~3.10.1",
-    "through2": "~0.4.0"
+    "request": "^2.67.0",
+    "semver": "~5.1.0",
+    "through2": "~0.4.0",
+    "vinyl": "~1.1.0"
   },
   "repository": {
     "type": "git",
