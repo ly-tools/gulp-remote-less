@@ -46,3 +46,4 @@ require('./lib/urlToLocal');
 require('./lib/fileExists');
 require('./lib/fetcher');
 require('./lib/isLess');
+require('./lib/fetchDeps');
