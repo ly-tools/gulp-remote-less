@@ -9,7 +9,7 @@ describe('fetcher', () => {
   it('should fetch remote file to local', () => {
     return fetcher({
       path: path.join(process.cwd(), 'test', 'fetcher', 'fetchTest.less'),
-      url: 'https://raw.githubusercontent.com/LingyuCoder/react-as-tagfield/master/src/style/index.less'
+      url: 'http://lingyucoder.github.io/react-as-tagfield/src/style/index.less'
     }).should.be.fulfilled();
   });
 });
