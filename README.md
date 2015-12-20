@@ -56,7 +56,7 @@ Then you can import remote less file like this:
 | :-------- | :-- | :--:| :--: | :--: |
 | useLocal | Use local file | Boolean | `true` |
 | timeout | Timeout when fetch remote file | Number | `5000` |
-| base | Local folder  | Number | `5000` |
+| base | Local folder where remote file saved | String | `'remote'` |
 | debug | Open debug mode | Boolean | `false` |
 
 ## Test
