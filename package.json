@@ -4,15 +4,16 @@
   "description": "Fetch remote less from @import",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test ./node_modules/.bin/_mocha --timeout 10000 --require should --reporter spec",
-    "test-cov": "NODE_ENV=test node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require should --timeout 10000",
-    "test-travis": "NODE_ENV=test node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --require should --timeout 10000"
+    "test": "NODE_ENV=test ./node_modules/.bin/_mocha --timeout 10000 --delay --require should --reporter spec",
+    "test-cov": "NODE_ENV=test node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require should --timeout 10000 --delay",
+    "test-travis": "NODE_ENV=test node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --require should --timeout 10000 --delay"
   },
   "author": "LingyuCoder",
   "license": "MIT",
   "devDependencies": {
     "del": "^1.1.0",
     "gulp": "3.x.x",
+    "gulp-less": "^3.0.5",
     "istanbul": "~0.4.0",
     "mocha": "~2.3.3",
     "run-sequence": "~1.1.4",

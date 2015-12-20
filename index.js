@@ -8,22 +8,20 @@ const fetchDeps = require('./lib/fetchDeps');
 
 const defaultOpts = {};
 
-module.exports = opts => {
-  opts = _.defaults(opts || {}, defaultOpts);
+module.exports = config => {
+  config = _.defaults(config || {}, defaultOpts);
   return through.obj((file, encoding, callback) => {
     if (file.isNull()) return callback(null, file);
     if (file.isStream()) {
-      logger.error(`不支持流格式文件`);
+      logger.error(`Stream is not supported`);
       return callback(PluginError('Stream is not supported'));
     }
-    callback(null, file);
-    // if (!isLess(file)) return callback(null, file);
-    // file.absolutePath = file.path;
-    // fetchDeps(file)
-    //   .then(() => callback(null, file))
-    //   .catch(e => {
-    //     logger.error(e.message);
-    //     callback(e);
-    //   });
+    if (!isLess(file)) return callback(null, file);
+    fetchDeps(file, config)
+      .then(() => callback(null, file))
+      .catch(e => {
+        logger.error(e.message);
+        callback(e);
+      });
   });
 };
