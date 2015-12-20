@@ -1,6 +1,5 @@
 'use strict';
-const Gulp = require('gulp').Gulp;
-const gulp = new Gulp();
+const gulp = require('gulp');
 const less = require('gulp-less');
 const plugin = require('../../index');
 const del = require('del');
@@ -15,5 +14,3 @@ gulp.task('default', ['clean'], () => {
     .pipe(less())
     .pipe(gulp.dest('build'));
 });
-
-module.exports = gulp;

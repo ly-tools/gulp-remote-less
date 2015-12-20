@@ -11,11 +11,16 @@ describe('parseImport', () => {
     return parseImport(new File({
         path: path.join(process.cwd(), 'a', 'b', 'c.less'),
         contents: new Buffer(`
-        @import './d.less';
-        @import '../e.less';
-        @import 'https://abcdefg.com/f.less';
-        @import 'https://abcdefg.com/a/b/c/d/f.less';
-      `)
+          @import './d.less';
+          @import '../e.less';
+          @import 'https://abcdefg.com/f.less';
+          @import 'https://abcdefg.com/a/b/c/d/f.less';
+          // @import 'asdfasdfasd';
+          /*
+            @import 'asdfasdfasdff';
+            @import 'asdfasdfasdff';
+          */
+        `)
       }))
       .then(rst => rst.deps)
       .should.be.fulfilledWith([{
@@ -36,7 +41,7 @@ describe('parseImport', () => {
   });
   it('should get remote path info', () => {
     let file = new File({
-      path: 'random',
+      path: path.join(process.cwd(), 'test', 'case1', 'remote', 'parseImport.less'),
       contents: new Buffer(`
         @import './d.less';
         @import '../e.less';

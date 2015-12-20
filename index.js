@@ -20,7 +20,7 @@ module.exports = config => {
     fetchDeps(file, config)
       .then(() => callback(null, file))
       .catch(e => {
-        logger.error(e.message);
+        logger.error(`${e.message}\n${e.stack}`);
         callback(e);
       });
   });
