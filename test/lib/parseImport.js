@@ -11,8 +11,8 @@ describe('parseImport', () => {
     return parseImport(new File({
         path: path.join(process.cwd(), 'a', 'b', 'c.less'),
         contents: new Buffer(`
-          @import './d.less';
-          @import '../e.less';
+          @import (inline) './d.less';
+          @import (multiple) '../e.less';
           @import 'https://abcdefg.com/f.less';
           @import 'https://abcdefg.com/a/b/c/d/f.less';
           // @import 'asdfasdfasd';
