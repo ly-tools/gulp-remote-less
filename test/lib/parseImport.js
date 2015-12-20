@@ -21,7 +21,9 @@ describe('parseImport', () => {
             @import 'asdfasdfasdff';
           */
         `)
-      }))
+      }), {
+        base: 'github'
+      })
       .then(rst => rst.deps)
       .should.be.fulfilledWith([{
         path: path.join(process.cwd(), 'a', 'b', 'd.less'),
@@ -30,18 +32,18 @@ describe('parseImport', () => {
         path: path.join(process.cwd(), 'a', 'e.less'),
         raw: '../e.less'
       }, {
-        path: path.join(process.cwd(), 'remote', 'https', 'abcdefg.com', 'f.less'),
+        path: path.join(process.cwd(), 'github', 'https', 'abcdefg.com', 'f.less'),
         url: 'https://abcdefg.com/f.less',
         raw: 'https://abcdefg.com/f.less'
       }, {
-        path: path.join(process.cwd(), 'remote', 'https', 'abcdefg.com', 'a', 'b', 'c', 'd', 'f.less'),
+        path: path.join(process.cwd(), 'github', 'https', 'abcdefg.com', 'a', 'b', 'c', 'd', 'f.less'),
         url: 'https://abcdefg.com/a/b/c/d/f.less',
         raw: 'https://abcdefg.com/a/b/c/d/f.less'
       }]);
   });
   it('should get remote path info', () => {
     let file = new File({
-      path: path.join(process.cwd(), 'test', 'case1', 'remote', 'parseImport.less'),
+      path: path.join(process.cwd(), 'test', 'case1', 'github', 'parseImport.less'),
       contents: new Buffer(`
         @import './d.less';
         @import '../e.less';
@@ -50,22 +52,24 @@ describe('parseImport', () => {
       `)
     });
     file.url = 'http://asdf.com/a/b';
-    return parseImport(file)
+    return parseImport(file, {
+        base: 'github'
+      })
       .then(rst => rst.deps)
       .should.be.fulfilledWith([{
-        path: path.join(process.cwd(), 'remote', 'http', 'asdf.com', 'a', 'd.less'),
+        path: path.join(process.cwd(), 'github', 'http', 'asdf.com', 'a', 'd.less'),
         url: 'http://asdf.com/a/d.less',
         raw: './d.less'
       }, {
-        path: path.join(process.cwd(), 'remote', 'http', 'asdf.com', 'e.less'),
+        path: path.join(process.cwd(), 'github', 'http', 'asdf.com', 'e.less'),
         url: 'http://asdf.com/e.less',
         raw: '../e.less'
       }, {
-        path: path.join(process.cwd(), 'remote', 'https', 'abcdefg.com', 'f.less'),
+        path: path.join(process.cwd(), 'github', 'https', 'abcdefg.com', 'f.less'),
         url: 'https://abcdefg.com/f.less',
         raw: 'https://abcdefg.com/f.less'
       }, {
-        path: path.join(process.cwd(), 'remote', 'https', 'abcdefg.com', 'a', 'b', 'c', 'd', 'f.less'),
+        path: path.join(process.cwd(), 'github', 'https', 'abcdefg.com', 'a', 'b', 'c', 'd', 'f.less'),
         url: 'https://abcdefg.com/a/b/c/d/f.less',
         raw: 'https://abcdefg.com/a/b/c/d/f.less'
       }]);

@@ -6,8 +6,6 @@ const run = require('run-gulp-task');
 const CWD = process.cwd();
 const testPath = path.join(CWD, 'test');
 const fs = require('fs-extra');
-const logger = require('../lib/logger');
-logger.setDebug(true);
 
 function runTest(testCase) {
   const casePath = path.join(testPath, testCase);

@@ -9,38 +9,62 @@
 [![License](http://img.shields.io/npm/l/gulp-remote-less.svg?style=flat-square)](LICENSE)
 [![npm download](https://img.shields.io/npm/dm/gulp-remote-less.svg?style=flat-square)](https://npmjs.org/package/gulp-remote-less)
 
-Fetch remote less from @import
+Import remote less by `@import`
+
+**Node.js >= 4.0.0**
 
 ## Installation
 
 ```bash
 $ npm install --save-dev gulp
+$ npm install --save-dev gulp-less
 $ npm install --save-dev gulp-remote-less
 ```
 
 ## Usage
 
+Add `gulp-remote-less` to your `gulpfile.js` like this:
+
 ```javascript
-var gulp = require('gulp');
-var plugin = require('gulp-remote-less');
+const gulp = require('gulp');
+const remoteLess = require('gulp-remote-less');
+const less = require('gulp-less');
 
 gulp.task('demo', function() {
   return gulp.src('src/**/*')
-    .pipe(plugin({
-      // your options
+    .pipe(remoteLess({
+      // your config
     }))
+    .pipe(less())
     .pipe(gulp.dest('build'));
 });
 ```
 
+Then you can import remote less file like this:
+
+```less
+@import 'http://lingyucoder.github.io/gulp-remote-less/test/source/a.less';
+
+.someClass {
+
+}
+```
+
 ## Options
+
+| Name       | Description  | Type | Default Value |
+| :-------- | :-- | :--:| :--: | :--: |
+| useLocal | Use local file | Boolean | `true` |
+| timeout | Timeout when fetch remote file | Number | `5000` |
+| base | Local folder  | Number | `5000` |
+| debug | Open debug mode | Boolean | `false` |
 
 ## Test
 
 ```bash
 $ npm run test
-$ npm run test-cov
-$ npm run test-travis
+$ npm run cov
+$ npm run travis
 ```
 
 ## License

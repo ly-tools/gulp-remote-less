@@ -1,12 +1,12 @@
 {
   "name": "gulp-remote-less",
   "version": "0.0.1",
-  "description": "Fetch remote less from @import",
+  "description": "Import remote less by `@import`",
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test ./node_modules/.bin/_mocha --timeout 20000 --require should --reporter spec",
-    "test-cov": "NODE_ENV=test node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require should --timeout 20000",
-    "test-travis": "NODE_ENV=test node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --require should --timeout 20000"
+    "cov": "NODE_ENV=test node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require should --timeout 20000",
+    "travis": "NODE_ENV=test node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --require should --timeout 20000"
   },
   "author": "LingyuCoder",
   "license": "MIT",
@@ -17,13 +17,11 @@
     "istanbul": "~0.4.0",
     "mocha": "~2.3.3",
     "run-gulp-task": "0.0.2",
-    "run-sequence": "~1.1.4",
     "should": "~7.1.1",
     "should-promised": "^0.3.1"
   },
   "dependencies": {
     "co": "~4.6.0",
-    "co-parallel-limit": "0.0.2",
     "del": "~2.2.0",
     "fs-extra": "~0.26.2",
     "gulp-util": "~3.0.7",
