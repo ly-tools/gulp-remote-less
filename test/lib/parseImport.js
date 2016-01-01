@@ -26,17 +26,19 @@ describe('parseImport', () => {
       })
       .then(rst => rst.deps)
       .should.be.fulfilledWith([{
-        path: path.join(process.cwd(), 'a', 'b', 'd.less'),
-        raw: './d.less'
+        path: path.join(process.cwd(), 'github/__local/a/b/d.less'),
+        raw: './d.less',
+        origin: '/Users/lingyu/github/gulp-remote-less/a/b/d.less'
       }, {
-        path: path.join(process.cwd(), 'a', 'e.less'),
-        raw: '../e.less'
+        path: path.join(process.cwd(), 'github/__local/a/e.less'),
+        raw: '../e.less',
+        origin: '/Users/lingyu/github/gulp-remote-less/a/e.less'
       }, {
-        path: path.join(process.cwd(), 'github', 'https', 'abcdefg.com', 'f.less'),
+        path: path.join(process.cwd(), 'github/https/abcdefg.com/f.less'),
         url: 'https://abcdefg.com/f.less',
         raw: 'https://abcdefg.com/f.less'
       }, {
-        path: path.join(process.cwd(), 'github', 'https', 'abcdefg.com', 'a', 'b', 'c', 'd', 'f.less'),
+        path: path.join(process.cwd(), 'github/https/abcdefg.com/a/b/c/d/f.less'),
         url: 'https://abcdefg.com/a/b/c/d/f.less',
         raw: 'https://abcdefg.com/a/b/c/d/f.less'
       }]);
@@ -57,19 +59,19 @@ describe('parseImport', () => {
       })
       .then(rst => rst.deps)
       .should.be.fulfilledWith([{
-        path: path.join(process.cwd(), 'github', 'http', 'asdf.com', 'a', 'd.less'),
+        path: path.join(process.cwd(), 'github/http/asdf.com/a/d.less'),
         url: 'http://asdf.com/a/d.less',
         raw: './d.less'
       }, {
-        path: path.join(process.cwd(), 'github', 'http', 'asdf.com', 'e.less'),
+        path: path.join(process.cwd(), 'github/http/asdf.com/e.less'),
         url: 'http://asdf.com/e.less',
         raw: '../e.less'
       }, {
-        path: path.join(process.cwd(), 'github', 'https', 'abcdefg.com', 'f.less'),
+        path: path.join(process.cwd(), 'github/https/abcdefg.com/f.less'),
         url: 'https://abcdefg.com/f.less',
         raw: 'https://abcdefg.com/f.less'
       }, {
-        path: path.join(process.cwd(), 'github', 'https', 'abcdefg.com', 'a', 'b', 'c', 'd', 'f.less'),
+        path: path.join(process.cwd(), 'github/https/abcdefg.com/a/b/c/d/f.less'),
         url: 'https://abcdefg.com/a/b/c/d/f.less',
         raw: 'https://abcdefg.com/a/b/c/d/f.less'
       }]);
