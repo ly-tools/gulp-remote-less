@@ -16,7 +16,7 @@
     "gulp-less": "^3.0.5",
     "istanbul": "~0.4.0",
     "mocha": "~2.3.3",
-    "run-gulp-task": "0.0.2",
+    "run-gulp-task": "^0.1.0",
     "should": "~7.1.1",
     "should-promised": "^0.3.1"
   },
