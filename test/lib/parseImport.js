@@ -28,11 +28,11 @@ describe('parseImport', () => {
       .should.be.fulfilledWith([{
         path: path.join(process.cwd(), 'github/__local/a/b/d.less'),
         raw: './d.less',
-        origin: '/Users/lingyu/github/gulp-remote-less/a/b/d.less'
+        origin: path.join(process.cwd(), 'a/b/d.less')
       }, {
         path: path.join(process.cwd(), 'github/__local/a/e.less'),
         raw: '../e.less',
-        origin: '/Users/lingyu/github/gulp-remote-less/a/e.less'
+        origin: path.join(process.cwd(), 'a/e.less')
       }, {
         path: path.join(process.cwd(), 'github/https/abcdefg.com/f.less'),
         url: 'https://abcdefg.com/f.less',
