@@ -1,6 +1,6 @@
 {
   "name": "gulp-remote-less",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Import remote less by `@import`",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "co": "~4.6.0",
     "del": "~2.2.0",
     "fs-extra": "~0.26.2",
-    "gulp-util": "~3.0.7",
+    "gulp-util": "^3.0.7",
     "linglog": "0.0.4",
     "lodash": "~3.10.1",
     "request": "^2.67.0",

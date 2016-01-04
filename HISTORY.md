@@ -2,6 +2,10 @@
 
 ---
 
+## 0.1.1
+
+* fix watch error bug
+
 ## 0.1.0
 
 * fix local import bug
